@@ -558,7 +558,30 @@ function loadContent(page, title, event) {
       return;
   }
 
-  // Load other pages dynamically
+  if (page === "pianos/grand") {
+    DisplayPianos("piano", "Grand Piano"); 
+    setActiveLink("pianos"); 
+    document.getElementById("pageHeaderText").textContent = "Grand Pianos";
+    document.title = "Grand Pianos";
+    return;
+}
+  
+  if (page === "pianos/upright") {
+    DisplayPianos("piano", "Upright Piano"); 
+    setActiveLink("pianos"); 
+    document.getElementById("pageHeaderText").textContent = "Upright Pianos";
+    document.title = "Upright Pianos";
+    return;
+  }
+
+  if (page === "pianos/digital") {
+    DisplayPianos("piano", "Digital Piano"); 
+    setActiveLink("pianos"); 
+    document.getElementById("pageHeaderText").textContent = "Digital Pianos";
+    document.title = "Digital Pianos";
+    return;
+}
+// Load other pages dynamically
   fetch(`${page}.html`)
       .then(response => response.text())
       .then(html => {
@@ -592,18 +615,21 @@ document.addEventListener("DOMContentLoaded", function () {
   // Click event for dynamically changing pianos
   contentDiv.addEventListener("click", function (event) {
       if (event.target && event.target.id === "grandPianoLink") {
+          location.hash = "#pianos/grand";
           DisplayPianos("piano", "Grand Piano"); 
           setActiveLink("pianos");   
           document.getElementById("topDiv").scrollIntoView({ behavior: 'smooth', block: 'start' });  
       }
 
       if (event.target && event.target.id === "uprightPianoLink") {
+          location.hash = "#pianos/upright";
           DisplayPianos("piano", "Upright Piano");  
           setActiveLink("pianos");   
           document.getElementById("topDiv").scrollIntoView({ behavior: 'smooth', block: 'start' });    
       }
 
       if (event.target && event.target.id === "digitalPianoLink") {
+          location.hash = "#pianos/digtal";
           DisplayPianos("piano", "Digital Piano"); 
           setActiveLink("pianos");  
           document.getElementById("topDiv").scrollIntoView({ behavior: 'smooth', block: 'start' });     
@@ -614,18 +640,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 contentDiv.addEventListener("click", function (event) {
   if (event.target && event.target.id === "grandPianoLink") {
+      location.hash = "#pianos/grand";
       DisplayPianos("piano", "Grand Piano"); 
       setActiveLink("pianos");   
       document.getElementById("topDiv").scrollIntoView({ behavior: 'smooth', block: 'start' });  
   }
 
   if (event.target && event.target.id === "uprightPianoLink") {
+      location.hash = "#pianos/upright";
       DisplayPianos("piano", "Upright Piano");  
       setActiveLink("pianos");   
       document.getElementById("topDiv").scrollIntoView({ behavior: 'smooth', block: 'start' });    
   }
 
   if (event.target && event.target.id === "digitalPianoLink") {
+      location.hash = "#pianos/digtal";
       DisplayPianos("piano", "Digital Piano"); 
       setActiveLink("pianos");  
       document.getElementById("topDiv").scrollIntoView({ behavior: 'smooth', block: 'start' });     
