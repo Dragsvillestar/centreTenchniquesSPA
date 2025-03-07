@@ -413,7 +413,7 @@ body > footer{
   background-color: #184733;
 }
 
-piano-results {
+.piano-results {
   display: flex;
   justify-content: space-between;
   align-items: center;
