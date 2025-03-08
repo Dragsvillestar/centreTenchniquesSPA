@@ -260,9 +260,15 @@ function updatePagination(totalItems) {
         span.classList.add('active');
       }
       span.addEventListener('click', function () {
-        displayPage(i, pianoData);
+        if (priceDataIf) {
+          data = priceData;
+        } else {
+          data = pianoData
+        }
+        displayPage(i, data);
+        
         document.getElementById("pianoFilterRight").scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Remove active class from all spans and add it to the clicked one
+
         paginationContainer.querySelectorAll('span').forEach(s => s.classList.remove('active'));
         this.classList.add('active');
       });
